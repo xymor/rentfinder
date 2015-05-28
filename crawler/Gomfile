@@ -1,0 +1,3 @@
+gom 'github.com/olivere/elastic', :commit => '45ca1206c82a26ff92a15f6e7688bbbe330c3f9c'
+gom 'github.com/PuerkitoBio/goquery', :commit => '60ec77b0032de8548a0d67f76154458850264a99'
+gom 'github.com/daviddengcn/go-colortext'

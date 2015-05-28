@@ -17,12 +17,9 @@ func RentScrape() {
 
   doc, errGet := goquery.NewDocument("http://rj.olx.com.br/rio-de-janeiro-e-regiao/zona-norte/imoveis/aluguel/apartamentos?q=tijuca+-barra&ret=1040") 
   if errGet != nil {
-    fmt.Printf("%v\n", "1")
     log.Fatal(errGet)
   } 
-  doc.Find(".section_OLXad-list ul.list li").FilterFunction(func(i int, sel *goquery.Selection) bool{
-    return sel.Find(".col-4 p").First().Text() == "Hoje"
-  }).Each(func(i int, s *goquery.Selection) {
+  doc.Find(".section_OLXad-list ul.list li").FilterFunction(filter).Each(func(i int, s *goquery.Selection) {
 
     anchor := s.Find("a")
 
@@ -31,6 +28,7 @@ func RentScrape() {
                 Price: scrub(s.Find(".OLXad-list-price").Text()),
                 Link: anchor.AttrOr("href","")   ,
                 Description: s.Find(".detail_specific").Text(),
+                Images: []string{0:s.Find("img.image").AttrOr("src","")} ,
                 Location: s.Find("i").Find(".detail_region").Text()}
 
     fmt.Printf("%v\n", rent)
@@ -46,6 +44,11 @@ func main() {
 
 func scrub(s string) string{
   return strings.Join( strings.Fields(s), " ") 
+}
+
+func filter(i int, sel *goquery.Selection) bool{
+    return true
+    //return sel.Find(".col-4 p").First().Text() == "Hoje"
 }
 
 func index(rent Rent){

@@ -1,0 +1,14 @@
+.profile starting
+Trying to build keymap using the following components:
+keycodes:   evdev+aliases(qwerty)
+types:      complete
+compat:     complete
+symbols:    pc+br(abnt2)+inet(evdev)+ctrl(nocaps)
+geometry:   pc(pc104)
+setxkbmap executed
+Trying to build keymap using the following components:
+keycodes:   evdev+aliases(qwerty)
+types:      complete
+compat:     complete
+symbols:    pc+us(altgr-intl)+inet(evdev)+ctrl(nocaps)
+geometry:   pc(pc104)
