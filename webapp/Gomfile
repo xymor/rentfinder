@@ -1,0 +1,6 @@
+gom 'github.com/daviddengcn/go-colortext'
+gom "github.com/go-martini/martini"
+gom "github.com/go-sql-driver/mysql"
+gom "github.com/jinzhu/gorm"
+gom "github.com/martini-contrib/binding"
+gom "github.com/martini-contrib/render"
